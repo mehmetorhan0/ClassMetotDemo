@@ -16,12 +16,12 @@ namespace ClassMetotDemo
                 musteri = new Customer();
                 musteri.id = i + 1;
                 Console.Write("Müşteri Adı:");
-                musteri.Ad = Console.ReadLine();
+                musteri.Adi = Console.ReadLine().ToLower();
                 Console.Write("Müşteri Soyadı:");
-                musteri.Soyad = Console.ReadLine();
+                musteri.Soyadi = Console.ReadLine().ToLower();
 
                 customermanager = new CustomerManager();
-                customermanager.Ekle(musteri);
+                customermanager.Add(musteri);
                 Array.Resize(ref musteriler, musteriler.Length + 1);
                 musteriler[i] = musteri;
 
@@ -37,16 +37,18 @@ namespace ClassMetotDemo
 
             if (listSonuc == "evet")
             {
-                customermanager.Listele(musteriler);
+                customermanager.List(musteriler);
             }
+
             Console.Write("Silmek istediğiniz müşterinin adını giriniz:");
-            var silmusteri = Console.ReadLine();
+            var silmusteri = Console.ReadLine().ToLower();
+
             for (int x = 0; x < musteriler.Length; x++)
             {
-                if (musteriler[x].Ad == silmusteri)
+                if (musteriler[x].Adi == silmusteri)
                 {
                     Customer SilenecekMusteri = musteriler[x];
-                    customermanager.Sil(SilenecekMusteri);
+                    customermanager.Delete(SilenecekMusteri);
                 }
             }
         }

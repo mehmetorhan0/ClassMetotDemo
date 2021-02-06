@@ -16,9 +16,9 @@ namespace ClassMetotDemo
                 musteri = new Customer();
                 musteri.id = i + 1;
                 Console.Write("Müşteri Adı:");
-                musteri.Adi = Console.ReadLine().ToLower();
+                musteri.Ad = Console.ReadLine().ToLower();
                 Console.Write("Müşteri Soyadı:");
-                musteri.Soyadi = Console.ReadLine().ToLower();
+                musteri.Soyad = Console.ReadLine().ToLower();
 
                 customermanager = new CustomerManager();
                 customermanager.Add(musteri);
@@ -45,7 +45,7 @@ namespace ClassMetotDemo
 
             for (int x = 0; x < musteriler.Length; x++)
             {
-                if (musteriler[x].Adi == silmusteri)
+                if (musteriler[x].Ad == silmusteri)
                 {
                     Customer SilenecekMusteri = musteriler[x];
                     customermanager.Delete(SilenecekMusteri);
